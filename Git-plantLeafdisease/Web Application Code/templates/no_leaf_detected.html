@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Leaf Detected</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>No Leaf Detected</h1>
+    <p>The uploaded image does not contain a leaf or cannot be identified.</p>
+    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 400px;">
+    <br>
+    <a href="/upload-another">Upload Another File</a>
+</body>
+</html>

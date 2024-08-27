@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload an Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" class="inputfile" accept=".png, .jpg, .jpeg" onchange="updateFileName(this)">
+        <label for="file">Choose a file</label>
+        <span id="file-name"></span>
+        <button type="submit" style="color:white">Upload</button>
+    </form>
+    {% if uploaded_image %}
+    <p>Uploaded Image: {{ uploaded_image }}</p>
+    <img src="{{ url_for('static', filename='uploads/' + upload_image) }}" alt="upload Image" style="max-width: 400px;">
+    {% endif %}
+
+    <script>
+        function updateFileName(input) {
+            var fileName = input.files[0].name;
+            document.getElementById('file-name').textContent = fileName;
+        }
+    </script>
+</body>
+</html>
